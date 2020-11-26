@@ -127,3 +127,4 @@ function layout() {
 }
 
 alias dp="clear && PS1='%F{2}#:%f'"
+alias vim="nvim"
