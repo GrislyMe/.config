@@ -1,10 +1,3 @@
-"Set Vim-Plug"
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 set nocompatible
 
 call plug#begin('~/.local/share/nvim/plugins')
@@ -19,8 +12,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for' : 'cpp'}
 Plug 'vim-python/python-syntax', { 'for' : 'py' }
-Plug 'stevearc/vim-arduino', {'for' : 'ino'}
-"Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 "Set Vim-Plug
 
@@ -77,7 +69,6 @@ let g:airline#extensions#tabline#enabled = 1
 "
 let g:python_highlight_all = 1
 
-
 "Other Setting
 syntax on
 set t_Co=256
@@ -105,7 +96,7 @@ set showmode
 set showmatch
 set wrap
 set autowrite
-set mouse=a
+set mouse=c
 let mapleader = " "
 "Other Settings
 
@@ -115,43 +106,22 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
-map <leader>t :NERDTreeToggle<CR>
+"inoremap ( ()<esc>i
+"inoremap [ []<esc>i
+"inoremap " ""<esc>i
+"inoremap ' ''<esc>i
+"inoremap {<CR> {<CR>}<esc>ko
 map <leader>h :wincmd h <CR>
 map <leader>j :wincmd j <CR>
 map <leader>k :wincmd k <CR>
 map <leader>l :wincmd l <CR>
-map <C-l> :tabn<CR>
-map <C-h> :tabp<CR>
-map <Home> ^
 map <F3> :NERDTreeToggle <CR>
 map <F4> :TagbarToggle <CR>
 map <C-a> gg=G <CR>
 imap <Home> <Esc>^i
-inoremap ( ()<Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
-inoremap [ []<Esc>i
-inoremap {<CR> {<CR>}<Esc>ko
 "Map
 
-
-"Switch Mouse Mode (Ctrl+n)
-map <C-n> :call SwitchMouseMode()<CR>
-map! <C-n> <Esc>:call SwitchMouseMode()<CR>
-function SwitchMouseMode()
-    if (&mouse == "a")
-        let &mouse = ""
-        echo "Mouse is disabled."
-    else
-        let &mouse = "a"
-        echo "Mouse is enabled."
-    endif
-endfunction
-"ctrl+n switch mouse mode
-
 "Tab To Space
-map <C-t> :call TabToSpaces()<CR>
-map! <C-t> <Esc>:call TabToSpaces()<CR>
 function TabToSpaces()
     retab
     echo "Convert tab to spaces."
@@ -159,6 +129,13 @@ endfunction
 "Tab To Space
 
 "remove unwanted space
-command Rspace :%s/\s\+$//e
+command RSpace :%s/\s\+$//e
 "remove unwanted space
 
+"hexReader
+command HexReader :%!xxd
+"hexReader
+
+"binaryReader
+command BinReader :%!xxd -R
+"binaryReader
