@@ -122,7 +122,7 @@ function mvd() {
 function layout() {
     if (($# == 1))
     then
-        python ~/.config/linux/plugin/layout.py "$1"
+        python ~/.config/linux/scrip/tmuxSessionTemplate.py "$1"
     fi
 }
 
