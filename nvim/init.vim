@@ -1,18 +1,31 @@
 set nocompatible
 
 call plug#begin('~/.local/share/nvim/plugins')
+"colorScheme
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
-Plug 'powerline/powerline-fonts'
-Plug 'udalov/kotlin-vim' , {'for' : 'kt'}
+
+"auto complete
 Plug 'Valloric/YouCompleteMe'
+
+"nerd tree
 Plug 'scrooloose/nerdtree'
-Plug 'rhysd/vim-clang-format'
+Plug 'jistr/vim-nerdtree-tabs'
+
+"status bar
+Plug 'powerline/powerline-fonts'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
+
+"language support
+Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for' : 'cpp'}
 Plug 'vim-python/python-syntax', { 'for' : 'py' }
-Plug 'jiangmiao/auto-pairs'
+Plug 'udalov/kotlin-vim' , {'for' : 'kt'}
+
+"git
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 "Set Vim-Plug
 
@@ -52,7 +65,7 @@ let g:tarbar_left = 1
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 let NERDTreeShowHidden=1
-let NERDTreeWinSize=31
+let NERDTreeWinSize=30
 let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swp', '\.git', '\.gitignore']
 let NERDTreeShowBookmarks=1
@@ -111,13 +124,14 @@ command Q q
 "inoremap " ""<esc>i
 "inoremap ' ''<esc>i
 "inoremap {<CR> {<CR>}<esc>ko
-map <leader>h :wincmd h <CR>
-map <leader>j :wincmd j <CR>
-map <leader>k :wincmd k <CR>
-map <leader>l :wincmd l <CR>
-map <F3> :NERDTreeToggle <CR>
-map <F4> :TagbarToggle <CR>
-map <C-a> gg=G <CR>
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+map <F3> :NERDTreeTabsToggle<CR>
+map <F4> :TagbarToggle<CR>
+map <F5> :term<CR>
+map <C-a> gg=G<CR>
 imap <Home> <Esc>^i
 "Map
 
