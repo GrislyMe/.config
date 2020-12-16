@@ -13,7 +13,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
 "status bar
-Plug 'powerline/powerline-fonts'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 
@@ -59,9 +58,13 @@ let g:tagbar_width=30
 let g:tarbar_left = 1
 "Set tagbar
 
+"airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_section_b = ' %{fugitive#statusline()}'
+"airline
 
 "Set nerdtree-tags
-
 let NERDTreeShowLineNumbers=1
 let NERDTreeAutoCenter=1
 let NERDTreeShowHidden=1
@@ -76,10 +79,6 @@ set foldmethod=marker
 set foldlevel=0
 "Set fold
 
-"Set AirLine
-let g:airline#extensions#tabline#enabled = 1
-"Set AirLine
-"
 let g:python_highlight_all = 1
 
 "Other Setting

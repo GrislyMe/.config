@@ -37,7 +37,6 @@ fi
 
 pauseaudio --start &
 pactl set-default-sink 0
-spotifyd &
-feh --bg-scale ~/.wallpapers/perfectBlue.jpg
+feh --bg-scale ~/.wallPaper/perfectBlue.jpg
 slstatus &
 exec dbus-launch dwm
