@@ -118,28 +118,19 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
-"inoremap ( ()<esc>i
-"inoremap [ []<esc>i
-"inoremap " ""<esc>i
-"inoremap ' ''<esc>i
-"inoremap {<CR> {<CR>}<esc>ko
+inoremap {<CR> {<CR>}<esc>ko
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
+map <leader>gs :Gstatus<CR>
 map <F3> :NERDTreeTabsToggle<CR>
 map <F4> :TagbarToggle<CR>
-map <F5> :term<CR>
+map <F5> :split<CR> :wincmd j<CR> :term<CR> :resize 10<CR>
 map <C-a> gg=G<CR>
 imap <Home> <Esc>^i
+tnoremap <Esc> <C-\><C-n>
 "Map
-
-"Tab To Space
-function TabToSpaces()
-    retab
-    echo "Convert tab to spaces."
-endfunction
-"Tab To Space
 
 "remove unwanted space
 command RSpace :%s/\s\+$//e
