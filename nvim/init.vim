@@ -25,6 +25,9 @@ Plug 'udalov/kotlin-vim' , {'for' : 'kt'}
 "git
 Plug 'tpope/vim-fugitive'
 
+"csv reader
+Plug 'chrisbra/csv.vim'
+
 call plug#end()
 "Set Vim-Plug
 
