@@ -9,3 +9,5 @@ configstore
 spotify*
 pulse/*
 dconf
+menus
+__pycache__

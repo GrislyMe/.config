@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: FiraCode Nerd Fonts:10
+font pango: Hack Nerd Font-Bold:12
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
@@ -192,7 +192,7 @@ bar {
 }
 
 # background program for i3
-exec_always compton
+# exec_always picom
 
 # flameshot
 bindsym $mod+shift+s exec flameshot gui

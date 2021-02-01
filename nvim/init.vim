@@ -28,6 +28,10 @@ Plug 'tpope/vim-fugitive'
 "csv reader
 Plug 'chrisbra/csv.vim'
 
+"discord status
+Plug 'aurieh/discord.nvim'
+
+
 call plug#end()
 "Set Vim-Plug
 
