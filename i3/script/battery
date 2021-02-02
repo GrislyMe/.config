@@ -1,21 +1,21 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 
 import sys
 sys.path.append(".")
 
-from progressBar import genProgressBar
+from progressBar import batProgressBar
 from color import genColor
 
 with open("/sys/class/power_supply/BAT0/status") as status:
     current = status.readline().split()
     if current[0] != "Discharging":
-        bat = "ﮣ "
+        bat = " "
     else:
         bat = " "
 
 with open("/sys/class/power_supply/BAT0/capacity") as BAT0:
     perc = int(BAT0.readline())
-    bat += genProgressBar(perc) + " %d%%" %perc
+    bat += batProgressBar(perc) + " %d%%" %perc
 
 print(bat)
 print(bat)
