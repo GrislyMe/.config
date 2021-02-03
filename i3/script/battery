@@ -3,8 +3,8 @@
 import sys
 sys.path.append(".")
 
-from progressBar import batProgressBar
-from color import genColor
+import progressBar
+import color
 
 with open("/sys/class/power_supply/BAT0/status") as status:
     current = status.readline().split()
@@ -15,9 +15,9 @@ with open("/sys/class/power_supply/BAT0/status") as status:
 
 with open("/sys/class/power_supply/BAT0/capacity") as BAT0:
     perc = int(BAT0.readline())
-    bat += batProgressBar(perc) + " %d%%" %perc
+    bat += progressBar.bat(perc) + " %d%%" %perc
 
 print(bat)
 print(bat)
-print(genColor(perc))
+print(color.genColor(perc))
 print("#000000")

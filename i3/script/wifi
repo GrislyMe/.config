@@ -4,25 +4,24 @@ import sys
 import subprocess
 sys.path.append(".")
 
-from color import genColor
-from progressBar import wifiProgressBar
+import color
+import progressBar
 
 with open("/sys/class/net/wlp3s0/operstate", "r") as stat:
-    if stat.readline() == "down":
+    if stat.readline().find("down") != -1:
         print("ﲁ")
         print("ﲁ")
-        print(genColor(0))
+        print(color.genColor(0))
         print("#000000")
+        stat.close()
         sys.exit(0)
+    else:
+        dbm = subprocess.run(["iw", "dev", "wlp3s0", "link"], capture_output=True, text=True)
+        temp = dbm.stdout.find("dBm")
+        perc = (int(dbm.stdout[temp - 5: temp]) + 100) * 2
+        bar = " " + progressBar.wifi(perc)
 
-dbm = subprocess.run(["iw", "dev", "wlp3s0", "link"], capture_output=True, text=True)
-temp = dbm.stdout.find("dBm")
-perc = (int(dbm.stdout[temp - 4: temp]) + 100) * 2
-if perc > 100 : perc = 100
-
-bar = wifiProgressBar(perc)
-
-print(bar, "%d%%" % perc)
-print(bar, "%d%%" % perc)
-print(genColor(perc))
-print("#000000")
+        print(bar, "%d%%" % perc)
+        print(bar, "%d%%" % perc)
+        print(color.genColor(perc))
+        print("#000000")

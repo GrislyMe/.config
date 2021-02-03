@@ -1,4 +1,4 @@
-def batProgressBar(perc : int):
+def bat(perc : int):
     char = ["░", "▒", "█"]
     bar = char[2] * int(perc / 20)
     if perc == 100:
@@ -8,7 +8,7 @@ def batProgressBar(perc : int):
         bar += char[0]
     return bar
 
-def wifiProgressBar(perc : int):
+def wifi(perc : int):
     char = ["░", "▒", "█"]
     bar = char[2] * int(perc / 33)
     if perc >= 99:
@@ -16,5 +16,6 @@ def wifiProgressBar(perc : int):
     bar += char[1]
     if len(bar) != 3:
         bar += char[0]
+    return bar
 
 # "░", "▒", "▓", "█"
