@@ -28,10 +28,6 @@ Plug 'tpope/vim-fugitive'
 "csv reader
 Plug 'chrisbra/csv.vim'
 
-"discord status
-Plug 'aurieh/discord.nvim'
-
-
 call plug#end()
 "Set Vim-Plug
 
@@ -130,7 +126,9 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
-map <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
 map <F3> :NERDTreeTabsToggle<CR>
 map <F4> :TagbarToggle<CR>
 map <F5> :split<CR> :wincmd j<CR> :term<CR> :resize 10<CR>

@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/grislyme/document/jobs/jyangTek/xmlAnalysis'
 let g:netrw_dirhist_2='/home/grislyme/.local/share/nvim/plugins'
 let g:netrw_dirhist_1='/home/grislyme/.config'

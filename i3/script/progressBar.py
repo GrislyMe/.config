@@ -14,7 +14,7 @@ def wifi(perc : int):
     if perc >= 99:
         return bar
     bar += char[1]
-    if len(bar) != 3:
+    while len(bar) != 3:
         bar += char[0]
     return bar
 

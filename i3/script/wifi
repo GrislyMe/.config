@@ -19,6 +19,7 @@ with open("/sys/class/net/wlp3s0/operstate", "r") as stat:
         dbm = subprocess.run(["iw", "dev", "wlp3s0", "link"], capture_output=True, text=True)
         temp = dbm.stdout.find("dBm")
         perc = (int(dbm.stdout[temp - 5: temp]) + 100) * 2
+        if perc > 100 : perc = 100
         bar = " " + progressBar.wifi(perc)
 
         print(bar, "%d%%" % perc)
