@@ -12,4 +12,5 @@ dconf
 menus
 __pycache__
 xarchiver
-
+QtProject
+mimeapps.list

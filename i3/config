@@ -199,3 +199,6 @@ bindsym $mod+shift+s exec flameshot gui
 
 # switching window
 bindsym mod1+Tab workspace back_and_forth
+
+# disable mouse focus
+mouse_warping none
