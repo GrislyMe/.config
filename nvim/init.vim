@@ -10,7 +10,10 @@ Plug 'Valloric/YouCompleteMe'
 
 "nerd tree
 Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+
+"FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 "status bar
 Plug 'majutsushi/tagbar'
@@ -97,7 +100,6 @@ set smartcase
 set hlsearch
 set incsearch
 set cindent
-set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -112,6 +114,7 @@ set showmatch
 set wrap
 set autowrite
 set mouse=c
+set mouse=nv
 let mapleader = " "
 "Other Settings
 
@@ -135,6 +138,16 @@ map <F5> :split<CR> :wincmd j<CR> :term<CR> :resize 10<CR>
 map <C-a> gg=G<CR>
 imap <Home> <Esc>^i
 tnoremap <Esc> <C-\><C-n>
+"FZF map
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>fb :BLines<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>f? :GFiles?<CR>
+nnoremap <leader>ft :Tags<CR>
+nnoremap <leader>fa :Ag<CR>
+nnoremap <leader>fc :Commits<CR>
+"FZF map
 "Map
 
 "remove unwanted space
