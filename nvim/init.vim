@@ -113,7 +113,6 @@ set showmode
 set showmatch
 set wrap
 set autowrite
-set mouse=c
 set mouse=nv
 let mapleader = " "
 "Other Settings
