@@ -1,4 +1,4 @@
-Xcursor.theme:Xcursor-theme
+Xcursor.size: 16
 
 !URxvt
 URxvt.perl-ext-common: default,matcher,clipboard,url-select

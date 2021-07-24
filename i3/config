@@ -15,18 +15,18 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango: Hack Nerd Font-Bold:12
 
-set $bg-color 	         #2f343f
-set $inactive-bg-color   #2f343f
+set $bg-color 	         #458588
+set $inactive-bg-color   #928374
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+set $urgent-bg-color     #fb4934
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.focused          $bg-color           $bg-color          $text-color          $bg-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $inactive-bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
 
 hide_edge_borders both
 
@@ -55,8 +55,12 @@ bindsym mod1+control+t exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 5 -opacity "85"
+# start rofi (a program launcher)
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_slate
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/powermenu
+bindsym $mod+f exec --no-startup-id urxvt -e ranger
+for_window [title="ranger" class="URxvt"] floating enable
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec rofi -modi drun,run -show drun
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -94,7 +98,7 @@ bindsym $mod+| split h
 bindsym $mod+- split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+z fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -194,11 +198,18 @@ bar {
 # background program for i3
 # exec_always picom
 
-# flameshot
-bindsym $mod+shift+s exec flameshot gui
+# screenshot
+bindsym $mod+shift+s --release exec "scrot '/tmp/%F_%T_$wx$h.png' -s -e 'xclip -selection clipboard -target image/png -i $f'"
 
 # switching window
 bindsym mod1+Tab workspace back_and_forth
 
 # disable mouse focus
+focus_follows_mouse no
 mouse_warping none
+
+# i3 gap
+#smart_gaps on
+for_window [class=".*"] border pixel 2
+gaps inner 10
+gaps outer 10

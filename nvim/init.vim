@@ -7,6 +7,7 @@ Plug 'morhetz/gruvbox'
 
 "auto complete
 Plug 'Valloric/YouCompleteMe'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "nerd tree
 Plug 'scrooloose/nerdtree'
@@ -31,6 +32,9 @@ Plug 'tpope/vim-fugitive'
 "csv reader
 Plug 'chrisbra/csv.vim'
 
+"leetcode
+Plug 'ianding1/leetcode.vim'
+
 call plug#end()
 "Set Vim-Plug
 
@@ -42,6 +46,10 @@ let g:clang_format#style_options = {
             \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "Standard" : "C++11"}
 "Set vim-clang-format
+
+"leetcode
+let g:leetcode_browser = "chrome"
+"leetcode
 
 "Set YouCompleteMe
 let g:ycm_clangd_uses_ycmd_caching = 0
@@ -131,7 +139,7 @@ map <leader>l :wincmd l<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
-map <F3> :NERDTreeTabsToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 map <F4> :TagbarToggle<CR>
 map <F5> :split<CR> :wincmd j<CR> :term<CR> :resize 10<CR>
 map <C-a> gg=G<CR>
@@ -160,6 +168,6 @@ command HexReader :%!xxd
 "binaryReader
 command BinReader :%!xxd -R
 "binaryReader
-"
+
 au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'

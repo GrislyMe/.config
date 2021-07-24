@@ -3,16 +3,14 @@
 export LANG=zh_TW.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
-
-# merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
@@ -40,11 +38,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-xss-lock slock &
-xset s 300 300
+#xss-lock slock &
+#xset s 300 300
 xset b off
-pactl set-default-sink 0
+#pactl set-default-sink 0
+fcitx &
 pauseaudio --start &
-ibus-daemon &
 ./.fehbg
 exec i3

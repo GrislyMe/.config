@@ -132,5 +132,5 @@ alias dp="clear && PS1='%F{2}#:%f'"
 alias vim="nvim"
 
 ## pyenv setting
-eval "$(pyenv init -)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#eval "$(pyenv init -)"
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
