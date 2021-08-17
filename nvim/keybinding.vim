@@ -4,32 +4,34 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
-inoremap {<CR> {<CR>}<esc>ko
+inoremap <silent>{<CR> {<CR>}<esc>ko
+inoremap <silent>( (<C-g>u
+inoremap <silent>, ,<C-g>u
+inoremap <silent>. .<C-g>u
+inoremap <silent>[ [<C-g>u
+inoremap <silent>{ {<C-g>u
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap gdh :diffget //2<CR> nnoremap gdl :diffget //3<CR>
+"nnoremap gdh :diffget //2<CR> nnoremap gdl :diffget //3<CR>
 nnoremap <silent><leader>e :Defx<CR>
-map <F5> :split<CR> :wincmd j<CR> :term<CR> :resize 10<CR>
-map <C-a> gg=G<CR>
+nnoremap <silent><leader>t :ToggleTerm size=10 direction=horizontal<CR>
 imap <Home> <Esc>^i
 tnoremap <Esc> <C-\><C-n>
-"FZF map
-nnoremap <leader>fl :Lines<CR>
-nnoremap <leader>fb :BLines<CR>
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fg :GFiles<CR>
-nnoremap <leader>f? :GFiles?<CR>
-nnoremap <leader>ft :Tags<CR>
-nnoremap <leader>fa :Ag<CR>
-nnoremap <leader>fc :Commits<CR>
-"FZF map
-"Map
 
+"autocompe
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+
+"defx
 autocmd FileType defx call s:defx_keybinding()
 function! s:defx_keybinding() abort
+	:set cursorline
     nnoremap <silent><buffer><expr> <CR>
                 \ defx#is_directory() ?
                 \ defx#do_action('open_or_close_tree') :
@@ -54,6 +56,5 @@ function! s:defx_keybinding() abort
     nnoremap <silent><buffer><expr> ! defx#do_action('execute_command')
 	nnoremap <silent><buffer><expr> a defx#do_action('new_file')
 	nnoremap <silent><buffer><expr> A defx#do_action('new_directory')
+	nnoremap <silent><buffer><expr> mv defx#do_action('rename')
 endfunction
-
-
